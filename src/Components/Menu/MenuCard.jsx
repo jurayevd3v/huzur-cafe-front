@@ -70,9 +70,9 @@ export default function MenuCard() {
 
     return (
         <div className="Container relative z-20">
-            <div className="Menu__Wrapper mt-[50px]">
-                {data.length > 0 ? (
-                    data.map((i, index) => (
+            {data.length > 0 ? (
+                <div className="Menu__Wrapper mt-[50px] grid gap-4">
+                    {data.map((i, index) => (
                         <div
                             key={index}
                             className="border-[3px] border-white h-auto cursor-pointer rounded-[20px] text-[white]"
@@ -86,32 +86,24 @@ export default function MenuCard() {
                                 className="object-cover rounded-b-[10px]"
                             />
                             <div className="w-full pt-[10px]">
-                                <h2 className="text-[30px] font-[800] text-center">
-                                    {i?.name}
-                                </h2>
+                                <h2 className="text-[30px] font-[800] text-center">{i?.name}</h2>
                                 <div className="w-[80%] h-[3px] bg-[white] mx-auto my-[15px] rounded-3xl"></div>
                                 <h2 className="text-[30px] font-[800] text-center mb-[10px]">
-                                    {i.price
-                                        ? Number(i.price).toLocaleString("ru-RU")
-                                        : "N/A"}{" "}
-                                    Сум
+                                    {i.price ? Number(i.price).toLocaleString("ru-RU") : "N/A"} Сум
                                 </h2>
                                 <div className="w-full py-[5px] bg-[white] text-[#026634] rounded-b-[10px] h-[30px] text-center">
-                                    <span>
-                                        {i?.discount > 0
-                                            ? `Скидка ${i?.discount} %`
-                                            : ""}
-                                    </span>
+                                    <span>{i?.discount > 0 ? `Скидка ${i?.discount} %` : ""}</span>
                                 </div>
                             </div>
                         </div>
-                    ))
-                ) : (
-                    <div>
-                        <p>Нет данных</p>
-                    </div>
-                )}
-            </div>
+                    ))}
+                </div>
+            ) : (
+                <div className="flex items-center justify-center h-[50vh]">
+                    <p className="text-white text-2xl font-semibold opacity-80">Нет данных</p>
+                </div>
+            )}
+
             {loading && hasMore && (
                 <div className="flex items-center justify-center my-4">
                     <ReactLoading type="spinningBubbles" color="white" height={50} width={50} />
@@ -119,4 +111,5 @@ export default function MenuCard() {
             )}
         </div>
     );
+
 }
