@@ -28,15 +28,11 @@ export default function Menu() {
             <div className='absolute  z-10 inset-0 bg-[#0000008e]'>
 
             </div>
-            <div className="Header relative z-20 flex items-center justify-between bg-white p-[20px] rounded-b-[30px]">
-                <img className='sm:w-[200px] w-[100px]'  src={logo} alt="Logo" />
-                <NavLink to={'/'}>
-                    <button className='bg-[#026634] text-white px-[30px] py-[10px] rounded-[10px] duration-500 border-[2px] border-[#026634] hover:bg-transparent hover:text-[#026634]'>
-                        Ortga
-                    </button>
-                </NavLink>
+
+            <div className="Header relative z-20 flex items-center justify-center bg-white p-[20px] rounded-b-[30px]">
+                <img className='sm:w-[200px] w-[100px]' src={logo} alt="Logo" />
             </div>
             <MenuCard />
-        </div>
+        </div >
     );
 }
